@@ -1,5 +1,5 @@
-# addInitScript for workers
+# monkeypatching Web Worker with playwright
 
-This is a minimal repro for asserting use cases for addInitScript for worker.
+This is a minimal repo that contains how to monkey patch workers with playwright.
 
-To reproduce, run `npm run test`
+TODO: make test case work

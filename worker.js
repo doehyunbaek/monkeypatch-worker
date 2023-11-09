@@ -1,16 +1,4 @@
-console.log(`workerFunction: ${workerFunction().toString()}`);
-
-function workerFunction() {
-  return Math.random().toString();
-}
-
-self.addEventListener('message', event => {
-  console.log('got this data: ' + event.data);
-});
-
-(async function() {
-  while (true) {
-    self.postMessage(workerFunction.toString());
-    await new Promise(x => setTimeout(x, 100));
-  }
-})();
+fetch("add.wasm")
+  .then((response) => response.arrayBuffer())
+  .then((bytes) => WebAssembly.instantiate(bytes, {}))
+  .then((result) => console.log(`1 + 2 = ${result.instance.exports.add(1,2)}`));
